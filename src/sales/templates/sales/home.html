@@ -1,0 +1,32 @@
+{%  extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+<form action="" method = "POST" class = "card-body">
+    {%csrf_token%}
+    {{form|crispy}}
+    <button type="submit" class= "btn btn-primary mt-3 ">Search</button>
+
+</form>
+<br>
+sales df
+{% if sales_df %}
+    {{sales_df|safe}}
+<br>
+positions df
+    {{positions_df|safe}}
+
+<br>
+merged df
+
+    {{merged_df|safe}}
+{% else%}
+
+    <h3>no data available</h3>
+
+{% endif %}    
+
+{% endblock content %}
